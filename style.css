@@ -1,0 +1,31 @@
+.navbar .navbar-brand{
+    color:rgb(124, 1, 238);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3rem;
+    position: relative;
+    left: 2%;
+}
+
+.collapse.navbar-collapse{
+    /* color:blueviolet; */
+    position: absolute;
+    right: 7%;
+    font-size: 1.2rem;
+
+}
+
+/* .nav-link{
+    color:rgb(124, 1, 238);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+} */
+.collapse.navbar-collapse.show{
+    
+    position: relative;
+    right: 0%;
+    font-size: 1rem;
+} 
+
+#title{
+    color:blueviolet;
+}
+
