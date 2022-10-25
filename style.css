@@ -40,3 +40,16 @@ img {
     border-radius:5px;
 
 }
+
+.btn-primary, .btn-primary:active, .btn-primary:visited{
+    color: rgb(211, 43, 226) !important;
+    border-color: rgb(211, 43, 226) !important;
+}
+
+.btn-primary:hover{
+    color:white !important;
+    background-color: rgb(211, 43, 226) !important;
+    border-color: rgb(211, 43, 226) !important;
+}
+
+
