@@ -25,3 +25,18 @@
     color: rgb(211, 43, 226);
 }
 
+img {
+    border-radius: 4px;
+    padding: 5%;
+}
+
+.first-section{
+    box-shadow: 10px 10px rgb(211, 43, 226);
+    background-color: rgb(255, 255, 255);
+    position:absolute;
+    right: 5%;
+    width: 90%;
+    border: 2px solid white;
+    border-radius:5px;
+
+}
