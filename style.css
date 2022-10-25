@@ -5,6 +5,9 @@
     position: relative;
     left: 2%;
 }
+#navbarSupportedContent .nav-link:hover{
+    color: rgb(0, 0, 0);
+}
 
 .collapse.navbar-collapse{
     font-size: 1.2rem;
@@ -50,6 +53,9 @@ img {
     color:white !important;
     background-color: rgb(211, 43, 226) !important;
     border-color: rgb(211, 43, 226) !important;
+    transition: 1s;
+    
 }
+
 
 
