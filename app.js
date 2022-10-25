@@ -19,15 +19,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
 
 
+//Code Starts here
 
 app.get('/',(req,res)=>{
-  res.render('index');
+  res.render('index',{title : "Trial"});
 });
 
+//Code ends here 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -45,4 +47,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+app.listen(process.env.PORT||3000, () => {
+  console.log("the server is running on port 3000");
+});
