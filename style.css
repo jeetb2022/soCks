@@ -40,3 +40,14 @@ img {
     border-radius:5px;
 
 }
+
+.first-section .create-button{
+    font-size: medium;
+    background-color: white;
+    color: rgb(211, 43, 226);
+    border: 2px solid rgb(211, 43, 226);
+    width: 20%;
+    height: 20%;
+    position:absolute;
+    left: 35%;
+}
