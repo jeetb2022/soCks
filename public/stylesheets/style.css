@@ -1,8 +1,70 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.navbar .navbar-brand{
+  color:rgb(211, 43, 226);
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 5rem;
+  position: relative;
+  left: 2%;
+}
+#navbarSupportedContent .nav-link:hover{
+  color: rgb(0, 0, 0);
+  transition: 1s;
 }
 
-a {
-  color: #00B7FF;
+#navbarSupportedContent{
+  font-size: 1.5rem;
 }
+#navbarSupportedContent .nav-link:hover{
+  color: black;
+  transition: 1s;
+}
+
+.collapse.navbar-collapse{
+  font-size: 1.2rem;
+}
+.collapse.navbar-collapse.show{
+  position: relative;
+  right: 0%;
+  font-size: 1rem;
+} 
+
+#title{
+  color:rgb(211, 43, 226);
+
+}
+
+#intro{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px;
+  color: rgb(211, 43, 226);
+}
+
+img {
+  border-radius: 4px;
+  padding: 5%;
+}
+
+.first-section{
+  box-shadow: 10px 10px rgb(211, 43, 226);
+  background-color: rgb(255, 255, 255);
+  position:absolute;
+  right: 5%;
+  width: 90%;
+  border: 2px solid white;
+  border-radius:5px;
+
+}
+
+
+.btn-primary, .btn-primary:active, .btn-primary:visited{
+  color: rgb(211, 43, 226) !important;
+  border-color: rgb(211, 43, 226) !important;
+}
+
+.btn-primary:hover{
+  color:white !important;
+  background-color: rgb(211, 43, 226) !important;
+  border-color: rgb(211, 43, 226) !important;
+}
+
+
+

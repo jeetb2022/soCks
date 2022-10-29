@@ -19,15 +19,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 
 
 //Code Starts here
 
-app.get('/',(req,res)=>{
-  res.render('index',{title : "Trial"});
-});
+
+
+// app.get('/',(req,res)=>{
+//   // res.render('index',{title : "Trial"});
+//   res.render('index');
+
+// });
+
+
+
+
+
 
 //Code ends here 
 
