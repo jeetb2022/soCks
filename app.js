@@ -8,7 +8,7 @@ const passport = require('passport');
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var usersRouter = require('./routes/users');
-const { session } = require('passport');
+const  session  = require('express-session');
 
 var app = express();
 
@@ -18,13 +18,14 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express-session());
+// app.use(express-session());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', indexRouter);
-app.use('/auth/google', authRouter);
+// app.use('/auth/google', authRouter);
+// app.use('/auth/google/callback', authRouter);
 // app.use('/users', usersRouter);
 
 
@@ -36,25 +37,40 @@ app.use('/auth/google', authRouter);
 // app.get('/',(req,res)=>{
 //   // res.render('index',{title : "Trial"});
 //   res.render('index');
+app.use(session({
+  secret: "secret",
+  resave: false ,
+  saveUninitialized: true
+}))
 const methodOverride = require("method-override");
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(methodOverride("_method"));
-app.use (passport.initialize(passport))
-app.use (passport.session())
-app.get("/login",(req, res) => {
+require('./authGoogle');
+app.get("/",(req, res) => {
   res.render("login");
 });
-app.get("/", checkAuthenticated, (req, res) => {
-  res.render("index")
+app.get("/index", checkAuthenticated, (req, res) => {
+  res.render("index");
 });
-const checkAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) { 
-    return next()}
-    else {
-      res.redirect("/login")
+app.get('/auth/google',
+passport.authenticate('google', { scope:
+  [ 'email', 'profile' ] }
+  ));
+  
+  app.get('/auth/google/callback',
+  passport.authenticate( 'google', {
+    successRedirect: '/index',
+    failureRedirect: '/login'
+  }));
+  
+  function checkAuthenticated(req, res, next){
+    if (req.isAuthenticated()) { 
+      return next()
     }
-}
+      else {
+        res.redirect("/login")
+      }
+  }
 
 
 // });
