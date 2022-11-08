@@ -12,5 +12,5 @@ var  userSchema =  new mongoose.Schema({
     email : String,
 
 });
-const userModel = new mongoose.model('user',userSchema);
+var userModel = mongoose.model('users',userSchema);
 module.exports = userModel;

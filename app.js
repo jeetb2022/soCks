@@ -50,6 +50,7 @@ app.get("/",(req, res) => {
   res.render("login");
 });
 const userModel = require('./Models/userModel');
+const { log } = require('util');
 app.get("/index", checkAuthenticated, (req, res) => {
   var  user ;
    userModel.findOne({email : req.user.email},(err,userData)=>{
@@ -62,15 +63,22 @@ app.get("/index", checkAuthenticated, (req, res) => {
       if(user == null){
         var newUser = new userModel();
         newUser.email = req.user.email;
-        newUser.name = req.user.name;
-        newUser.save((err)=>{
-          if(err){
-            console.log('error in saving the data in database ');
+        newUser.name = req.user.name.givenName+ " "+req.user.name.familyName ;
+        // console.log(newUser.name);
+        // console.log(req.user);
+        newUser.save(function (err) {
+          if (err) {
+            // res.send(err);
+            console.log(err);
+          } else {
+            // res.redirect('/login');
           }
-        })
+        });
+       
       }
   })
   // console.log(req.user.email);
+
   res.render("index");
 });
 app.get('/auth/google',
