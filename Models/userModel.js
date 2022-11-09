@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/socks', { useNewUrlParser: true,
+const dotenv = require('dotenv');
+dotenv.config();
+const databaselink = process.env.dataBaseURL;
+mongoose.connect(databaselink, { useNewUrlParser: true,
 useUnifiedTopology: true});
 const con = mongoose.connection;
 con.once('open',()=>{

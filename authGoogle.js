@@ -1,7 +1,12 @@
 const passport = require('passport');
+const dotenv = require('dotenv');
+const envVariables = require('./envconfig')
+dotenv.config();
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
-const CLIENT_ID = '686718387830-sjamhu7cnu8hljnogfeqmblcat65ctri.apps.googleusercontent.com';
-const CLIENT_SECRET = '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';
+const CLIENT_ID = envVariables.CLIENT_ID;
+const CLIENT_SECRET =envVariables.CLIENT_SECRET;
+// console.log(CLIENT_SECRET);
+// console.log(CLIENT_ID);
 const authUser = (request, accessToken, refreshToken, profile, done) => {
     return done(null, profile);
 };

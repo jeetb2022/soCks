@@ -1,4 +1,6 @@
 var createError = require('http-errors');
+const dotenv = require('dotenv');
+dotenv.config();
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -81,9 +83,7 @@ app.get("/index", checkAuthenticated, (req, res) => {
 
   res.render("index");
 });
-app.get('/auth/google',
-passport.authenticate('google', { scope:
-  [ 'email', 'profile' ] }
+app.get('/auth/google',passport.authenticate('google', { scope:  [ 'email', 'profile' ] }
   ));
   app.get('/auth/google/callback',
   passport.authenticate( 'google', {
