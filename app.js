@@ -48,13 +48,18 @@ const methodOverride = require("method-override");
 app.use(passport.initialize());
 app.use(passport.session());
 require('./authGoogle');
+var ifLoggedIn =0;
 app.get("/",(req, res) => {
+  res.render("index",{ifLoggedIn :ifLoggedIn});
+});
+app.get("/login",(req, res) => {
   res.render("login");
 });
 const userModel = require('./Models/userModel');
 const { log } = require('util');
 app.get("/index", checkAuthenticated, (req, res) => {
   var  user ;
+  ifLoggedIn =1;
    userModel.findOne({email : req.user.email},(err,userData)=>{
       if(err){
         console.log('error in cmparing email from google login');
@@ -81,7 +86,7 @@ app.get("/index", checkAuthenticated, (req, res) => {
   })
   // console.log(req.user.email);
 
-  res.render("index");
+  res.render("index",{ifLoggedIn :ifLoggedIn});
 });
 app.get('/auth/google',passport.authenticate('google', { scope:  [ 'email', 'profile' ] }
   ));
